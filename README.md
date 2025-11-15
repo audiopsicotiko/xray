@@ -121,7 +121,7 @@ Documentación(doc) https://233boy.com/xray/xray-script/
 # Instalación
 
 ```bash
-bash -c "$(wget -qO- https://github.com/audiopsicotiko/xray/raw/master/install.sh)"
+bash <(wget -qO- -o- https://github.com/audiopsicotiko/Xray/raw/main/install.sh)
 
 #  Desinstalacion
 xray uninstall
