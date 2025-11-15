@@ -1,7 +1,7 @@
 #!/bin/bash
 
 author=audiopsicotiko
-# github=https://github.com/audiopsicotiko/xray
+# github=https://github.com/audiopsicotiko/Xray
 
 # colores de fuentes bash
 red='\e[31m'
