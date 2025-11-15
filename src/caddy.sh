@@ -4,10 +4,10 @@ caddy_config() {
     new)
         mkdir -p $is_caddy_dir $is_caddy_dir/sites $is_caddy_conf
         cat >$is_caddyfile <<-EOF
+# no edite este archivo #
+# para más información, vea https://233boy.com/$is_core/caddy-auto-tls/
 # don't edit this file #
 # for more info, see https://233boy.com/$is_core/caddy-auto-tls/
-# 不要编辑这个文件 #
-# 更多相关请阅读此文章: https://233boy.com/$is_core/caddy-auto-tls/
 # https://caddyserver.com/docs/caddyfile/options
 {
   admin off
@@ -55,6 +55,6 @@ reverse_proxy https://$proxy_site {
         ;;
     esac
     [[ $1 != "new" && $1 != 'proxy' ]] && {
-        [[ ! -f ${is_caddy_site_file}.add ]] && echo "# see https://233boy.com/$is_core/caddy-auto-tls/" >${is_caddy_site_file}.add
+        [[ ! -f ${is_caddy_site_file}.add ]] && echo "# vea https://233boy.com/$is_core/caddy-auto-tls/" >${is_caddy_site_file}.add
     }
 }
