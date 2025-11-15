@@ -12,12 +12,12 @@ log_set() {
             [[ $(grep -E -i "^${2,,}$" <<<$v) ]] && is_log_level_use=$v && break
         done
         [[ ! $is_log_level_use ]] && {
-            err "无法识别 log 参数: $@ \n请使用 $is_core log [${is_log_level_list[@]}] 进行相关设定.\n备注: del 参数仅临时删除 log 文件; none 参数将不会生成 log 文件."
+            err "No se puede reconocer el parámetro log: $@ \nUse $is_core log [${is_log_level_list[@]}] para configuraciones relacionadas.\nNota: el parámetro del solo elimina temporalmente los archivos log; el parámetro none no generará archivos log."
         }
         case $is_log_level_use in
         del)
             rm -rf $is_log_dir/*.log
-            msg "\n $(_green 已临时删除 log 文件, 如果你想要完全禁止生成 log 文件请使用: $is_core log none)\n"
+            msg "\n $(_green Archivos log eliminados temporalmente, si desea deshabilitar completamente la generación de archivos log use: $is_core log none)\n"
             ;;
         none)
             rm -rf $is_log_dir/*.log
@@ -29,23 +29,23 @@ log_set() {
         esac
 
         manage restart &
-        [[ $2 != 'del' ]] && msg "\n已更新 Log 设定为: $(_green $is_log_level_use)\n"
+        [[ $2 != 'del' ]] && msg "\nConfiguración de Log actualizada a: $(_green $is_log_level_use)\n"
     else
         case $1 in
         log)
             if [[ -f $is_log_dir/access.log ]]; then
-                msg "\n 提醒: 按 $(_green Ctrl + C) 退出\n"
+                msg "\n Recordatorio: Presione $(_green Ctrl + C) para salir\n"
                 tail -f $is_log_dir/access.log
             else
-                err "无法找到 log 文件."
+                err "No se pueden encontrar archivos log."
             fi
             ;;
         *)
             if [[ -f $is_log_dir/error.log ]]; then
-                msg "\n 提醒: 按 $(_green Ctrl + C) 退出\n"
+                msg "\n Recordatorio: Presione $(_green Ctrl + C) para salir\n"
                 tail -f $is_log_dir/error.log
             else
-                err "无法找到 log 文件."
+                err "No se pueden encontrar archivos log."
             fi
             ;;
         esac
