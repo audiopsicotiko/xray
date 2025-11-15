@@ -46,7 +46,7 @@ Los parámetros del script son muy eficientes y súper fáciles de usar, por fav
 Instalación y uso: https://233boy.com/xray/xray-script/
 
 # Ayuda
-
+```bash
 Uso: xray [opciones]... [argumentos]...
 
 Básico:
